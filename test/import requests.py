@@ -5,7 +5,7 @@ from urllib.parse import urlencode
 # from lxml import html
 
 
-class Tests(unittest.TestCase):
+class Tests1(unittest.TestCase):
 
     def test_get_health(self):
         # GET http://catalogue.sock-shop-p/health (endp 6)
