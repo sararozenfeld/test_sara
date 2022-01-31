@@ -17,3 +17,17 @@ class Tests(unittest.TestCase):
 
         # assert resp.status_code in [200]
         # assert resp.elapsed.total_seconds() < 0.02004675091939744 # this is based on in-cluster average response time
+
+
+    def test_get_catalogue(self, size=None, tags=None):
+        # GET http://catalogue.sock-shop/catalogue (endp 20)
+        size = '5' if size is None else size
+        tags = '' if tags is None else tags
+        qstr = '?' + urlencode({'page': '1', 'size': size, 'sort': 'id', 'tags': tags})
+        resp = requests.get("http://catalogue.sock-shop" + '/catalogue' + qstr)
+        resp.raise_for_status()
+        
+
+
+        # assert resp.status_code in [200]
+        # assert resp.elapsed.total_seconds() < 0.003887970125795556 # this is based on in-cluster average response time
