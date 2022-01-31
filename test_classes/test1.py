@@ -7,16 +7,16 @@ from urllib.parse import urlencode
 
 class Tests(unittest.TestCase):
 
-    def test_get_catalogue_id(self, id_=None):
-        # GET http://catalogue.sock-shop/catalogue/{id} (endp 19)
-        id_ = 'a0a4f044-b040-410d-8ead-4de0446aec7e' if id_ is None else id_
-        resp = requests.get("http://catalogue.sock-shop" + f'/catalogue/{id_}')
+    def test_get_catalogue_size(self):
+        # GET http://catalogue.sock-shop/catalogue/size (endp 33)
+        qstr = '?' + urlencode({'tags': ''})
+        resp = requests.get("http://catalogue.sock-shop" + '/catalogue/size' + qstr)
         resp.raise_for_status()
         
 
 
         # assert resp.status_code in [200]
-        # assert resp.elapsed.total_seconds() < 0.0013226794138109933 # this is based on in-cluster average response time
+        # assert resp.elapsed.total_seconds() < 0.0000307979170558726 # this is based on in-cluster average response time
 
 
     def test_get_catalogue(self, size=None, tags=None):
