@@ -5,7 +5,7 @@ from urllib.parse import urlencode
 # from lxml import html
 
 
-class Tests_re(unittest.TestCase):
+class Tests(unittest.TestCase):
 
     def test_get_carts_customerId_items(self, customerId=None):
         # GET http://carts.sock-shop/carts/{customerId}/items (endp 5)
